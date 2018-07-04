@@ -1,0 +1,24 @@
+use dbinfox;
+-- Código para criar a tabela
+create table tb_usuario(
+iduser int primary key,
+usuario varchar(50) not null,
+fone varchar(15) not null,
+login varchar(50) not null unique,
+senha varchar (50) not null,
+perfil varchar (50) not null
+); 
+-- descrevendo a tabela
+describe tb_usuario;
+-- inserindo dados na tabela (CRUD - create)
+insert into tb_usuario values
+(1,'Fabrício Ferreira de Oliveira', '1111-1111', 'FabrasFO', '123@senac', 'Aluno do Senac');
+insert into tb_usuario values
+(2,'José de Assis', '2222-2222', 'Zedeassis', '123@senac', 'Professor do Senac');
+insert into tb_usuario values
+(3,'Leandro Ramos', '3333-3333', 'RamosSenac', '123@senac', 'Professor do Senac');
+-- pesquisando dados na tabela (CRUD - Read)
+select * from tb_usuario; 
+
+
+
