@@ -1,0 +1,56 @@
+use dbinfox;
+-- Código para criar a tabela
+create table tb_usuario(
+iduser int primary key,
+usuario varchar(50) not null,
+fone varchar(15) not null,
+login varchar(50) not null unique,
+senha varchar (50) not null,
+perfil varchar (50) not null
+); 
+-- descrevendo a tabela
+describe tb_usuario;
+-- inserindo dados na tabela (CRUD - create)
+insert into tb_usuario values
+(1,'Fabrício Ferreira de Oliveira', '1111-1111', 'FabrasFO', '123@senac', 'Aluno do Senac');
+insert into tb_usuario values
+(2,'José de Assis', '2222-2222', 'Zedeassis', '123@senac', 'Professor do Senac');
+insert into tb_usuario values
+(3,'Leandro Ramos', '3333-3333', 'RamosSenac', '123@senac', 'Professor do Senac');
+-- pesquisando dados na tabela (CRUD - Read)
+select * from tb_usuario; 
+
+-- A próxima tabela é a tb_cliente do dia 23/07/2018
+
+use dbinfox;
+-- Código para criar a tabela
+create table tb_cliente(
+idcli int primary key,
+cpfcli varchar(50) unique,
+nomecli varchar (50) not null,
+cep varchar(15) not null,
+tipo varchar(50) not null ,
+logradouro varchar (50) not null,
+numero varchar (50) not null,
+complemento varchar (50),
+bairro varchar (50) not null,
+cidade varchar (15) not null,
+uf varchar (15) not null,
+fone1 varchar (15) not null,
+fone2 varchar (15),
+emailcli varchar (30) not null
+); 
+-- descrevendo a tabela
+describe tb_cliente;
+-- inserindo dados na tabela (CRUD - create)
+insert into tb_cliente values
+(1,'4772741483', 'Fabrício Ferreira de Oliveira', '03367040', 'Rua', 'Rua nossa senhora das dores', '325','','Vila Formosa','São Paulo','SP','993683896','','fabricio_fer13@outlook.com');
+-- pesquisando dados na tabela (CRUD - Read)
+select * from tb_cliente; 
+
+
+
+
+
+
+
