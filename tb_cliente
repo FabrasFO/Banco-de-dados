@@ -44,7 +44,7 @@ emailcli varchar (30) not null
 describe tb_cliente;
 -- inserindo dados na tabela (CRUD - create)
 insert into tb_cliente values
-(1,'11111111111', 'Fabrício Oliveira', '03367040', 'Rua', 'Rua nossa senhora das dores', '325','','Vila Formosa','São Paulo','SP','993683896','','fabricio_fer13@outlook.com');
+(1,'11111111111', 'Fabrício Oliveira', '03367040', 'Rua', 'Nossa senhora das dores', '325','','Vila Formosa','São Paulo','SP','993683896','','fabricio_fer13@outlook.com');
 -- pesquisando dados na tabela (CRUD - Read)
 select * from tb_cliente; 
 
