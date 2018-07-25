@@ -1,0 +1,61 @@
+use dbinfox;
+-- Código para criar a tabela
+create table tb_usuario(
+iduser int primary key,
+usuario varchar(50) not null,
+fone varchar(15) not null,
+login varchar(50) not null unique,
+senha varchar (50) not null,
+perfil varchar (50) not null
+); 
+-- descrevendo a tabela
+describe tb_usuario;
+-- inserindo dados na tabela (CRUD - create)
+insert into tb_usuario values
+(1,'Fabrício Ferreira de Oliveira', '1111-1111', 'FabrasFO', '123@senac', 'Aluno do Senac');
+insert into tb_usuario values
+(2,'José de Assis', '2222-2222', 'Zedeassis', '123@senac', 'Professor do Senac');
+insert into tb_usuario values
+(3,'Leandro Ramos', '3333-3333', 'RamosSenac', '123@senac', 'Professor do Senac');
+-- pesquisando dados na tabela (CRUD - Read)
+select * from tb_usuario; 
+
+use dbinfox;
+-- Código para criar a tabela
+create table tb_clientes(
+idcli int auto_increment primary key,
+cpfcli varchar (50),
+nomecli varchar (50) not null,
+cepcli varchar (50) not null,
+tipocli varchar (15) not null,
+logradouro varchar (50) not null,
+numero varchar (15) not null,
+complemento varchar (50),
+bairro varchar (50) not null,
+cidade varchar (15) not null,
+uf char (2) not null,
+fone1 varchar (15) not null,
+fone2 varchar (15),
+emailcli  varchar (50) not null
+);
+-- descrevendo a tabela
+describe tb_clientes;
+-- inserindo dados na tabela (CRUD - create)
+insert into tb_clientes values
+(null,'0000000000', 'Fabrício Ferreira de Oliveira', '03367040', 'Rua', 'Rua nossa senhora das dores', '325','','Vila Formosa','São Paulo','SP','993683896','','fabricio_fer13@outlook.com');
+insert into tb_clientes 
+values(null,'1111111111', 'Lucas Soares', '123456789', 'Avenida', 'Paulista', '567','','Paulista','São Paulo','SP','993683896','','Lucassoares12@outlook.com');
+insert into tb_clientes
+values (null,'222222222222', 'Bruno Rodrigues Vieira', '987654321', 'Rua', 'kanto', '521','','Pokemon','São Paulo','SP','123654789','','bruninhorv@outlook.com');
+insert into tb_clientes
+values (null,'333333333333', 'Vitor Zelli', '897564231', 'Rua', 'Viridian', '658','','Pokemon','São Paulo','SP','963852741','','vitaozelli@outlook.com');
+insert into tb_clientes
+values (null,'4444444444', 'Sabrina Vieira', '856471235', 'Rua', 'Cinabar', '12','','Pokemon','São Paulo','SP','258369741','','sabrinavieira@outlook.com'); 
+-- pesquisando dados na tabela (CRUD - Read)
+select * from tb_clientes;
+
+update tb_clientes set logradouro='Kanto' where idcli = 3;
+update tb_clientes set logradouro='Vermillion' where idcli = 2;
+update tb_clientes set tipocli='Rua' where idcli = 2;
+
+drop table tb_cliente;
