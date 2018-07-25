@@ -50,7 +50,7 @@ values (null,'222222222222', 'Bruno Rodrigues Vieira', '987654321', 'Rua', 'kant
 insert into tb_clientes
 values (null,'333333333333', 'Vitor Zelli', '897564231', 'Rua', 'Viridian', '658','','Pokemon','São Paulo','SP','963852741','','vitaozelli@outlook.com');
 insert into tb_clientes
-values (null,'4444444444', 'Sabrina Vieira', '856471235', 'Rua', 'Cinabar', '12','','Pokemon','São Paulo','SP','258369741','','sabrinavieira@outlook.com'); 
+values (null,'4444444444', 'Sabrina Vieira', '856471235', 'Rua', 'Cinabar', '123','','Pokemon','São Paulo','SP','258369741','','sabrinavieira@outlook.com'); 
 -- pesquisando dados na tabela (CRUD - Read)
 select * from tb_clientes;
 
