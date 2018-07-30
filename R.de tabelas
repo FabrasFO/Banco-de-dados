@@ -1,0 +1,78 @@
+-- _______________Avaliação_______________________
+use dbinfox;
+
+create table tb_clientes(
+idcli int auto_increment primary key,
+nomecli varchar (50) not null,
+fonecli varchar (50) not null,
+cpfcli varchar (15) unique,
+emailcli  varchar (50)
+);
+
+-- insert com valores nulos
+insert into tb_clientes 
+values(null, 'Bruno Vieira','1111-1111', '111.111.111.11', 'Bruno@outlook.com');
+
+-- insert com valores nulos
+insert into tb_clientes 
+values(null, 'Lucas Souza','2222-2222', '222.222.222.22', 'Lucas@outlook.com');
+
+-- insert com valores nulos
+insert into tb_clientes 
+values(null, 'Vitor Zelli','3333-3333', '333.333.333.33', 'bill@outlook.com');
+
+update tb_clientes set emailcli = 'vitor@outlook.com' where idcli = 3;
+
+create table tb_os(
+idos int auto_increment primary key,
+data_os timestamp default current_timestamp,
+tipo varchar (15) not null,
+situacao varchar (20) not null, 
+equipamento varchar (100) not null,
+defeito varchar (200) not null,
+servico varchar (200),
+tecnico varchar (200),
+valor decimal (10,2)
+
+);
+-- adicionando uma coluna que será usada como chave estrangeira
+alter table tb_os add idcli int;
+
+-- relacionamento
+alter table tb_os add constraint clientes_os 
+foreign key (idcli)
+references tb_clientes (idcli)
+on delete no action;
+
+-- comando para alterar o start do ínicio do auto incremento
+alter table tb_os auto_increment = 10000;
+
+select * from tb_os;
+-- 3 OS
+insert into tb_os (tipo, situacao, equipamento, defeito, servico, tecnico, valor, idcli)
+values ('Conserto', 'Aprovado', 'TV Samsung 4k curvada 50 polegadas', 'Não está ligando', 'Troca da tela', 'Fabrício Ferreira',1500.50, 1);
+ 
+ insert into tb_os (tipo, situacao, equipamento, defeito, servico, tecnico, valor, idcli)
+values ('Conserto', 'Aprovado', 'Ps4', 'Ejetando o disco', 'Trocar o leitor', 'Leandro Ramos','140', 2);
+
+insert into tb_os (tipo, situacao, equipamento, defeito, servico, tecnico, valor, idcli)
+values ('Conserto', 'Aprovado', 'Cooler para Processador CoolerMaster', 'Parou de funcionar', 'Consertar as ventoinhas', 'Robson Vaamonde',90, 3);
+
+
+-- criando relatórios personalizados 
+-- apelidos
+select idos, equipamento, defeito, orcamento from tb_os;
+select idos as OS, tipo as Tipo, situacao as Situação, equipamento as Equipamento, defeito as Defeito, servico as Serviço, tecnico as Técnico, valor as Total from tb_os;
+
+-- Unindo dados de 2 tabelas relacionadas
+-- O e C são variaveis criadas para selecionar os campos das tabelas
+-- inner join uni os dados de duas tabelas
+-- on PK (primary key) ------- FK (foreign key)
+select O.idos as OS, data_os as Data, tipo as Tipo, situacao as Situação, equipamento as Equipamento, defeito as Defeito, servico as Serviço, tecnico as Técnico, valor as Total,
+C.nomecli as Nome, fonecli as Fone, emailcli as Email
+from tb_os as O
+inner join tb_clientes as C on (O.idcli = C.idcli);
+
+select * from tb_os;
+-- drop table tb_clientes;
+-- drop table tb_os;
